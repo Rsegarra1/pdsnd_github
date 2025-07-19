@@ -8,6 +8,7 @@ new_york = pd.read_csv("./new_york_city.csv")
 chicago = pd.read_csv("./chicago.csv")
 washington = pd.read_csv("./washington.csv")
 cities = [new_york,chicago,washington]
+
 # Lets add the missing columns for washington
 washington['Gender'] = np.nan
 washington['Birth Year'] = pd.Series(dtype='Int64')
@@ -18,7 +19,7 @@ washington['Trip Duration'] = washington['Trip Duration'].round(0).astype('Int64
 for city in cities:
     city.drop(columns='Unnamed: 0', inplace=True)
     city['Start Time'] = pd.to_datetime(city['Start Time'])
-    #city['Birth Year'] = city['Birth Year'].astype('Int64')
+    city['Birth Year'] = city['Birth Year'].astype('Int64')
     city['Hour'] = city['Start Time'].dt.strftime('%I %p').str.lstrip('0')
     city['Month'] = city['Start Time'].dt.month_name().str.upper()
     city['Day'] = city['Start Time'].dt.day_name().str.upper()
@@ -33,6 +34,9 @@ washington['City'] = 'WASHINGTON'
 # We can now union them together!
 bikeshare = pd.concat(cities)
 
+def yes_no(x):
+    if x in ['YES','Y']:
+        return('Y')
 
 def filters(df):
     '''
@@ -174,12 +178,12 @@ while recalculate =='Y':
             print(f"Youngest Birth Year in NEW YORK: {df[df['City']=='NEW YORK']['Birth Year'].max()}\nOldest Birth Year in NEW YORK: {df[df['City']=='NEW YORK']['Birth Year'].min()}\nMost common Birth year in NEW YORK: {df[df['City']=='NEW YORK']['Birth Year'].mode()[0]}")
             print('-----------------------------------------------------------------------------')
 
-    raw = input('Do you wish to see the first 5 records of raw data?... [Y/N] ').upper().strip()
+    raw = yes_no(input('Do you wish to see the first 5 records of raw data?... [Y/N] ').upper().strip())
     if raw == 'Y':
         indx = 5
         print(df.iloc[:indx])
         time.sleep(1)
-        continue_data = input('Continue with next 5 raw data records?... [Y/N] ').upper().strip()
+        continue_data = yes_no(input('Continue with next 5 raw data records?... [Y/N] ').upper().strip())
         indx +=5
         try:
             while (continue_data =='Y'):
@@ -187,13 +191,13 @@ while recalculate =='Y':
                     print(df.iloc[indx:(indx+5)])
                     indx +=5
                     time.sleep(1)
-                    continue_data = input('Continue with next 5 raw data records?... [Y/N] ').upper().strip()
+                    continue_data = yes_no(input('Continue with next 5 raw data records?... [Y/N] ').upper().strip())
                 else:
                     print(df.iloc[int(len(df)-5):])
         except Exception as e:
                 print(f'An error has occured. Please see the following {e}\nThis is likeley due to an incorrect response to the continue statement.')
 
-    recalculate = input(f'Do you wish to restart the program? [Y/N]...').upper().strip().replace(' ','')
+    recalculate = yes_no(input(f'Do you wish to restart the program? [Y/N]...').upper().strip().replace(' ',''))
 else:
     print('Thank you for diving into the bikeshare data!')
     recalculate = 'N'

@@ -18,6 +18,7 @@ Next, it computes summary statistics given user input.
   <li>Washington.csv</li>
   <li>Chicago.csv</li>
 </ul> 
+FIles obtained through udacity *See credits below*
 
 ### Credits
 Support and gidance for the project was obtained from Udemity as it pertains to the nanodegree. 

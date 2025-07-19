@@ -1,17 +1,27 @@
 >**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
 
-### Date created
-Include the date you created this project and README file.
+### Project 2: 2025-07-15
 
-### Project Title
-Replace the Project Title
+### Bikeshare
 
 ### Description
-Describe what your project is about and what it does
+This project loads in multiple csv files pertaining to bikeshare ride across 3 major citites
+ <ul>
+  <li>New York</li>
+  <li>Washington</li>
+  <li>Chicago</li>
+</ul> 
+
+Next, it computes summary statistics given user input.
 
 ### Files used
-Include the files used
+ <ul>
+  <li>New_York_city.csv</li>
+  <li>Washington.csv</li>
+  <li>Chicago.csv</li>
+</ul> 
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Support and gidance for the project was obtained from Udemity as it pertains to the nanodegree. 
+https://www.udacity.com
 

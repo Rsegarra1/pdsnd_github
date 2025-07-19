@@ -35,6 +35,9 @@ bikeshare = pd.concat(cities)
 
 
 def filters(df):
+    '''
+        This function prompts user for filtering options
+    '''
     bikeshare_df_copy = df.copy()
     unique_cities = list(bikeshare_df_copy['City'].unique())
     unique_cities.append('ALL')

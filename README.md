@@ -1,6 +1,6 @@
-### Project 2: 2025-07-15
+### Project 2 Date Created: 2025-07-15
 
-### Bikeshare
+### Project Name: Bikeshare
 
 ### Description
 This project loads in multiple csv files pertaining to bikeshare ride across 3 major citites
